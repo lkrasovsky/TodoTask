@@ -9,15 +9,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class TodoService {
 
+    val todoApi: TodoApi by lazy {
+        mRetrofit.create(TodoApi::class.java)
+    }
+
     private var mRetrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(createClient())
         .build()
-
-    private val todoApi: TodoApi by lazy {
-        mRetrofit.create(TodoApi::class.java)
-    }
 
     private val loggingInterceptor: Interceptor by lazy {
         val loggingInterceptor = HttpLoggingInterceptor()
