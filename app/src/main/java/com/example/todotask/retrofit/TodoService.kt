@@ -13,16 +13,20 @@ class TodoService {
         mRetrofit.create(TodoApi::class.java)
     }
 
-    private var mRetrofit: Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .client(createClient())
-        .build()
+    private var mRetrofit: Retrofit
 
     private val loggingInterceptor: Interceptor by lazy {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         loggingInterceptor
+    }
+
+    init {
+        mRetrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(createClient())
+            .build()
     }
 
     private fun createClient(): OkHttpClient {
@@ -31,6 +35,6 @@ class TodoService {
     }
 
     companion object {
-        const val BASE_URL = "https://gorest.co.in/public-api"
+        const val BASE_URL = "https://gorest.co.in/public-api/"
     }
 }

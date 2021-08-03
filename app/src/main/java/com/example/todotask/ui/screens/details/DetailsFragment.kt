@@ -1,4 +1,4 @@
-package com.example.todotask.ui.details
+package com.example.todotask.ui.screens.details
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
