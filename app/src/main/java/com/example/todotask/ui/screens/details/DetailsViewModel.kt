@@ -8,7 +8,7 @@ import com.example.todotask.retrofit.entity.Data
 
 class DetailsViewModel(private val todoRepository: TodoRepository) : ViewModel() {
 
-    val todoLiveData: LiveData<Data> = MutableLiveData()
+    val todoLiveData: LiveData<Data?> = MutableLiveData(null)
     val isLoadingLiveData: LiveData<Boolean> = MutableLiveData()
     val errorMessageLiveData: LiveData<String?> = MutableLiveData()
 

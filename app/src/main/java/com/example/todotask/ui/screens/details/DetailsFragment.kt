@@ -30,8 +30,10 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
 
     private fun observeViewModel() {
         viewModel.todoLiveData.observe(viewLifecycleOwner) {
-            binding.titleText.text = it.title
-            binding.dateText.text = it.dueOn
+            it?.let {
+                binding.titleText.text = it.title
+                binding.dateText.text = it.dueOn
+            }
         }
         viewModel.isLoadingLiveData.observe(viewLifecycleOwner) {
             val visibility = if (it) View.VISIBLE else View.GONE

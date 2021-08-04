@@ -76,7 +76,7 @@ class TodoService(private val context: Context) {
         }
 
     private val cache: Cache
-        get() = Cache(context.cacheDir, 300 * 1024 * 1024) // 300MB
+        get() = Cache(context.cacheDir, (300 * 1024 * 1024).toLong()) // 300MB
 
     init {
         mRetrofit = Retrofit.Builder()
