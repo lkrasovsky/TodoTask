@@ -22,6 +22,9 @@ class ListViewModel(private val todoRepository: TodoRepository) : ViewModel() {
                 val todoItems = todos.map {
                     TodosAdapter.TodoItem(it.id, it.title)
                 }
+
+                todoRepository.saveTodos(todos)
+
                 (todosLiveData as MutableLiveData).postValue(todoItems)
             },
             onResponseNotSuccessful = {
