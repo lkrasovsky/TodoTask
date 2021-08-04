@@ -27,4 +27,29 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Title" />
 
+    <FrameLayout
+        android:id="@+id/progressBarView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:visibility="gone"
+        tools:text="Error" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,10 +34,16 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
             binding.dateText.text = it.dueOn
         }
         viewModel.isLoadingLiveData.observe(viewLifecycleOwner) {
-
+            val visibility = if (it) View.VISIBLE else View.GONE
+            binding.progressBarView.visibility = visibility
         }
         viewModel.errorMessageLiveData.observe(viewLifecycleOwner) {
-
+            it?.let {
+                binding.errorText.visibility = View.VISIBLE
+                binding.errorText.text = it
+            } ?: run {
+                binding.errorText.visibility = View.GONE
+            }
         }
     }
 }

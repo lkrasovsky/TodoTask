@@ -10,11 +10,12 @@ class DetailsViewModel(private val todoRepository: TodoRepository) : ViewModel()
 
     val todoLiveData: LiveData<Data> = MutableLiveData()
     val isLoadingLiveData: LiveData<Boolean> = MutableLiveData()
-    val errorMessageLiveData: LiveData<String> = MutableLiveData()
+    val errorMessageLiveData: LiveData<String?> = MutableLiveData()
 
     fun loadTodo(todoId: Int) {
         try {
             (isLoadingLiveData as MutableLiveData).postValue(true)
+            (errorMessageLiveData as MutableLiveData).postValue(null)
 
             val todo = todoRepository.getTodoById(todoId)
             (todoLiveData as MutableLiveData).postValue(todo)
