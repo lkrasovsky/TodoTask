@@ -11,11 +11,11 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class ListFragment : BaseFragment<FragmentListBinding>() {
 
-    private val viewModel: ListViewModel by viewModel()
-
     override val bindingInflater: (LayoutInflater, ViewGroup?) -> FragmentListBinding = { inflater, container ->
         FragmentListBinding.inflate(inflater, container, false)
     }
+
+    private val viewModel: ListViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         observeViewModel()
