@@ -10,7 +10,7 @@ import org.koin.dsl.module
 
 val module = module {
     // Retrofit
-    single { TodoService() }
+    single { TodoService(androidContext()) }
 
     // Repository
     single { TodoRepository(get(), get()) }
@@ -19,7 +19,7 @@ val module = module {
     single {
         return@single Room.databaseBuilder(
             androidContext(), TodosDatabase::class.java, "todos_database"
-        ).build()
+        ).build().todosDao
     }
 
     // ViewModel

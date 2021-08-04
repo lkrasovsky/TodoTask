@@ -17,7 +17,7 @@ class TodoRepository(private val service: TodoService, private val dao: TodosDao
         }
     }
 
-    fun getTodoById(id: Int): TodosResponse {
+    fun getTodoById(id: Int): Data {
         return runBlocking(Dispatchers.IO) {
             dao.getTodoById(id)
         }
